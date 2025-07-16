@@ -6,6 +6,7 @@ class Harcama
     public String aciklama { get; set; }
     public decimal tutar { get; set; }
     public DateTime tarih { get; set; }
+    public string Kategori { get; set; }
 }
 
 partial class Program
@@ -50,6 +51,8 @@ partial class Program
         String aciklama = Console.ReadLine();
         Console.Write("TUTAR:");
         decimal tutar = decimal.Parse(Console.ReadLine());
+        Console.Write("Kategori: ");
+        string kategori = Console.ReadLine();
         harcamalar.Add(new Harcama { aciklama = aciklama, tutar = tutar, tarih = DateTime.Now });
         Console.WriteLine("Harcama kaydedildi.");
     }
@@ -59,7 +62,8 @@ partial class Program
         Console.WriteLine("\n--- Harcamalar ---");
         foreach (var h in harcamalar)
         {
-            Console.WriteLine($"{h.tarih:yyyy-MM-dd HH:mm} - {h.aciklama} : {h.tutar} TL");
+            Console.WriteLine($"{h.Tarih:yyyy-MM-dd HH:mm} - {h.Aciklama} ({h.Kategori}) : {h.Tutar} TL");
+
         }
     }
 
